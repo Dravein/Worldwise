@@ -5,7 +5,6 @@ import styles from "./CityList.module.css";
 import { useCities } from "../contexts/CitiesContext";
 
 function CityList() {
-  // function CityList({ cities, isLoading })  Ez helyett kapja alul lévő parancsból az adatokat.
   const { cities, isLoading } = useCities();
 
   if (isLoading) return <Spinner />;

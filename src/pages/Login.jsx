@@ -6,7 +6,6 @@ import { useAuth } from "../contexts/FakeAuthContect";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
@@ -21,7 +20,6 @@ export default function Login() {
 
   useEffect(
     function () {
-      //replace a login page historíját helyezi vissza arra az oldalra amin voltunk a loginnál, így vissza lehet menni.
       if (isAuthenticated) navigate("/app", { replace: true });
     },
     [isAuthenticated, navigate]

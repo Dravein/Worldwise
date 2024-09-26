@@ -3,30 +3,20 @@ import {
   useState,
   useEffect,
   useContext,
-  useReducer,
 } from "react";
 
 const BASE_URL = "http://localhost:9000";
 const CitiesContext = createContext();
 
-// const initialState = {
-//   cities: [],
-//   isLoading: false,
-//   currentCity: {},
-// };
 
-// function reducer(state, action) {}
 
 function CitiesProvider({ children }) {
-  // const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
-  //   reducer,
-  //   initialState
-  // );
+
 
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  //Épp kiválasztott City kettő helyen is kell azért kerül ide (Global State)
+ 
   const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
@@ -45,21 +35,7 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  //Konkrét City-t id alapján kérje le az API-ról - ezt is átadhatjuk a context-nek
-  //   async function getCity(id) {
-  //     try {
-  //       setIsLoading(true);
-  //       const res = await fetch(`${BASE_URL}/cities${id}`);
-  //       const data = await res.json();
-  //       setCurrentCity(data);
-  //     } catch {
-  //       alert("There was an error loading data...");
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
 
-  //Ez a felső helyett, mivel így valamiért ne madd vissza hibát.
   async function getCity(id) {
     try {
       setIsLoading(true);
@@ -127,7 +103,7 @@ function useCities() {
   if (context === undefined)
     throw new Error("CitiesCOntext was used outside the CitiesProvider");
 
-  // console.log(context);
+ 
   return context;
 }
 

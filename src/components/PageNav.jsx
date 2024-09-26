@@ -8,7 +8,6 @@ function PageNav() {
       <Logo />
       <ul>
         <li>
-          {/* Olyan mint a Link a NavLink, viszont kap egy class="active" ha épp azon az URL-en vagyunk így tudjuk szerkeszteni a kinézetét */}
           <NavLink to="/pricing">Pricing</NavLink>
         </li>
         <li>

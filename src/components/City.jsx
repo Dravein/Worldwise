@@ -14,35 +14,10 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  // path="cities/:id" useParams (Paraméter Hook) azt az értéket adja vissza amit a kettősponttal után definiáltunk (Itt id)
   const { id } = useParams();
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
 
-  //Bonyolultabb API fetch szimulálása.
   const { getCity, currentCity, isLoading } = useCities();
-  //____________________________________________________
-  // TEMP DATA
-  // const currentCity = {
-  //   cityName: "Lisbon",
-  //   emoji: "🇵🇹",
-  //   date: "2027-10-31T15:59:59.138Z",
-  //   notes: "My favorite city so far!",
-  // };
 
-  // return (
-  //   <>
-  //     <h1>city {id}</h1>{" "}
-  //     <p>
-  //       Position: {lat}, {lng}
-  //     </p>
-  //   </>
-  // );
-  //____________________________________________________
-
-  //Aktuális adatot töltse be Component mount-nál
-  //get city-t useCallback-ba kell rakni különben végtelen lesz a renderelés
   useEffect(
     function () {
       getCity(id);

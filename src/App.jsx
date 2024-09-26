@@ -28,19 +28,13 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
 function App() {
   return (
-    // <div>
-    //   {/* Ez mindig megjelenig a lapon tökmind1 melyik url-re megyünk */}
-    //   <h1>Hello Router</h1>
-    // {/* //Telepített react-router-dom-ból jönnek. */}
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
-              {/* ("/") kezdő lapot jelenti http://localhost:5173 */}
               <Route path="/" element={<Homepage />} />
-              {/* <Route index element={<Homepage />} /> */}
-              {/* http://localhost:5173/product címen melyik komponenst töltse be <Product />. */}
+
               <Route path="product" element={<Product />} />
               <Route path="pricing" element={<Pricing />} />
               <Route path="login" element={<Login />} />
@@ -52,22 +46,15 @@ function App() {
                   </ProtectedRoute>
                 }
               >
-                {/* Ha csak a http://localhost:5173/app/ lépünk ezt az elemet fogja az <Outlet >-be renderelni, URL-be nem erre van a <Navigate> */}
-                {/* <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          /> */}
-
-                {/* <Navigate> Nested Routnál gyökérbe átirányítson rögtön arra az URL-re /app/cities-be (replace kell hogy lehessen bögészőbben back-re menni) */}
                 <Route index element={<Navigate replace to="cities" />} />
-                {/* Nested Routes http://localhost:5173/app/cities, <Outlet > (React router-ből jön) Componentbe jelenítődnek meg abba az elembe kell ezt az elemet tenni ahova beágyaztuk a Routot itt (AppLayout.jsx) */}
+
                 <Route path="cities" element={<CityList />} />
-                {/* //Paramétert és elfogadunk a route-ba a path-ban írt formában */}
+
                 <Route path="cities/:id" element={<City />} />
                 <Route path="countries" element={<CountryList />} />
                 <Route path="form" element={<Form />} />
               </Route>
-              {/* path="*" - Minden olyan URL cím ami nem létezik ide irányítódik */}
+
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Suspense>

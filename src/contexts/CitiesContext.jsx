@@ -21,7 +21,6 @@ function reducer(state, action) {
     case "loading":
       return { ...state, isLoading: true };
 
-    //Ezzel a / jeles elnevezés a szokás.
     case "cities/loaded":
       return {
         ...state,
@@ -66,12 +65,6 @@ function CitiesProvider({ children }) {
     initialState
   );
 
-  // const [cities, setCities] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // //Épp kiválasztott City kettő helyen is kell azért kerül ide (Global State)
-  // const [currentCity, setCurrentCity] = useState({});
-
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: "loading" });
@@ -90,22 +83,6 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  //Konkrét City-t id alapján kérje le az API-ról - ezt is átadhatjuk a context-nek
-  //   async function getCity(id) {
-  //     try {
-  //       setIsLoading(true);
-  //       const res = await fetch(`${BASE_URL}/cities${id}`);
-  //       const data = await res.json();
-  //       setCurrentCity(data);
-  //     } catch {
-  //       alert("There was an error loading data...");
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //Ez a felső helyett, mivel így valamiért ne madd vissza hibát.
-  // Kell a useCallback különben végtelen ciklusba kerülhetünk.
   const getCity = useCallback(
     async function getCity(id) {
       if (Number(id) === currentCity.id) return;
@@ -182,7 +159,6 @@ function useCities() {
   if (context === undefined)
     throw new Error("CitiesCOntext was used outside the CitiesProvider");
 
-  // console.log(context);
   return context;
 }
 

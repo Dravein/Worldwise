@@ -37,14 +37,12 @@ function Form() {
   const [geocodingError, setGeocodingError] = useState("");
 
   const flagemojiToPNG = (flag) => {
-    // Convert flag emoji to corresponding country code
     const countryCode = [...flag]
       .map((char) =>
         String.fromCharCode(char.codePointAt() - 127397).toLowerCase()
       )
       .join("");
 
-    // Return an image element with the country's flag
     return (
       <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
     );
@@ -126,12 +124,7 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        {/* <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        /> */}
-        {/* datepicker helyette egyszerűbben lehessen dátumot választani. */}
+
         <DatePicker
           id="date"
           onChange={(date) => setDate(date)}

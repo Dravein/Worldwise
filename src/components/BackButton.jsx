@@ -7,9 +7,7 @@ function BackButton() {
     <Button
       type="back"
       onClick={(e) => {
-        //Submit alap even megakadályozása
         e.preventDefault();
-        //Vissza tudunk lépni vele az előző oldalra
         navigate(-1);
       }}
     >

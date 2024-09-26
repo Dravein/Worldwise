@@ -30,8 +30,6 @@ function CityItem({ city }) {
 
   return (
     <li>
-      {/* //to={`${id}` -> Meglévő URL címhez teszi hozzá. */}
-      {/* {`${id}?lat=${position.lat}&lng=${position.lng}`} query-be tesz hozzá az URL-be */}
       <Link
         className={`${styles.cityItem} ${
           id === currentCity.id ? styles["cityItem--active"] : ""

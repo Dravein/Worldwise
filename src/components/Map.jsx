@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MapContainer,
   TileLayer,
@@ -25,7 +25,6 @@ function Map() {
 
   const [mapLat, mapLng] = useUrlPosition();
 
-  //Ha változik valamelyik kordináta akkor mapPosition frissüljön, így megjegyzi a térkép melyik City-t választottuk ki utolájra és ott marad.
   useEffect(
     function () {
       if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
@@ -87,7 +86,6 @@ function Map() {
 }
 
 function ChangeCenter({ position }) {
-  //react.leaflet api custom hook.
   const map = useMap();
   map.setView(position);
   return null;
@@ -96,9 +94,7 @@ function ChangeCenter({ position }) {
 function DetectClick() {
   const navigate = useNavigate();
 
-  //react.leaflet api custom hook.
   useMapEvents({
-    // http://localhost:5173/app/form -ra navigál az URL-en.
     click: (e) => {
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
