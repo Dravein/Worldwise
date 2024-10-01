@@ -1,8 +1,14 @@
-# React + Vite
+Mark the cities you have visited on the map and comment on your opinion about them.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+How to try it?
+Terminal 1: npm run server
+Terminal 2: npm run dev
+Fake Login just click it 😊
 
-Currently, two official plugins are available:
+Techonolgy:
+-React
+-React-Router
+-Context API
+-Json Server
+-Leaflet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
